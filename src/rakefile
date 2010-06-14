@@ -1,0 +1,35 @@
+require 'rake'
+require 'spec/rake/spectask'
+require 'albacore'
+
+task :default => ['msbuild']
+task :test => ['msbuild', 'nunit']
+task :spec => ['msbuild', 'rspec']
+task :specdoc => ['msbuild', 'formatspec']
+task :all => ['msbuild', 'nunit', 'rspec']
+
+desc "Build Monopoly in .Net 4.0 using the MSBuildTask"
+msbuild :msbuild do |msb|
+  msb.path_to_command = File.join(ENV['windir'], 'Microsoft.NET', 'Framework', 'v4.0.30319', 'MSBuild.exe')
+  msb.properties :configuration => :Debug
+  msb.targets :Clean, :Build
+  msb.verbosity = 'quiet'
+  msb.solution = "Monopoly.sln"
+end
+
+desc "NUnit Test Runner for Monopoly"
+nunit do |nunit|
+	nunit.path_to_command = "../libs/nUnit/nunit-console.exe"
+	nunit.assemblies "Monopoly.Tests.NUnit/bin/Debug/Monopoly.Tests.NUnit.dll"
+end
+
+desc 'Runs the rspec tests in IronRuby'
+Spec::Rake::SpecTask.new(:rspec) do |t|
+  t.spec_files = Dir.glob('Monopoly.Specs.RSpec/**/*_spec.rb')
+end
+
+desc 'Runs the rspec tests in IronRuby and outputs specdoc'
+Spec::Rake::SpecTask.new(:formatspec) do |t|
+  t.spec_files = Dir.glob('Monopoly.Specs.RSpec/**/*_spec.rb')
+  t.spec_opts << '--format specdoc'
+end
