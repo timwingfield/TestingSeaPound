@@ -86,9 +86,6 @@ describe ColoredLot, 'the Boardwalk' do
     @boardwalk.color = 'Blue'
     @boardwalk.base_rent = 50
     @boardwalk.rent_values_per_number_of_houses = rent_values
-    
-    #var _baseRent = 50;
-    #var _rentValuesPerNumberOfHouses = new List<int> { 100, 200, 600, 1400, 1700, 2000 };
   end
   
   describe 'when calculating the rent due' do

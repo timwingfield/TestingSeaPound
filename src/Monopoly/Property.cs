@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Monopoly
 {
-    public class BaseProperty
+    public abstract class BaseProperty
     {
         public int Price { get; set; }
         public int MortgageValue { get; set; }
