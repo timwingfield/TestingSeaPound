@@ -49,13 +49,12 @@ namespace Monopoly
         public string Color { get; set; }
         public int Houses { get; set; }
         public bool OwnAllLotsInGroup { get; set; }
+        public int BaseRent { get; set; }
+        public List<int> RentValuesPerNumberOfHouses { get; set; }
 
         public int RentDue()
         {
-            var _baseRent = 50;
-            var _rentValuesPerNumberOfHouses = new List<int> { 100, 200, 600, 1400, 1700, 2000 };
-
-            return OwnAllLotsInGroup ? _rentValuesPerNumberOfHouses[Houses] : _baseRent;
+            return OwnAllLotsInGroup ? RentValuesPerNumberOfHouses[Houses] : BaseRent;
         }
     }
 }

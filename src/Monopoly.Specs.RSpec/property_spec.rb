@@ -1,4 +1,5 @@
 require File.dirname(__FILE__) + '/spec_helper'
+include System::Collections::Generic
 
 describe Utility do
   before :each do
@@ -77,9 +78,17 @@ end
 
 describe ColoredLot, 'the Boardwalk' do
   before :each do
+    rent_values = List.of(Fixnum).new()
+    [100, 200, 600, 1400, 1700, 2000].each { |val| rent_values.Add val }
+    
     @boardwalk = ColoredLot.new
     @boardwalk.name = 'Boardwalk'
     @boardwalk.color = 'Blue'
+    @boardwalk.base_rent = 50
+    @boardwalk.rent_values_per_number_of_houses = rent_values
+    
+    #var _baseRent = 50;
+    #var _rentValuesPerNumberOfHouses = new List<int> { 100, 200, 600, 1400, 1700, 2000 };
   end
   
   describe 'when calculating the rent due' do
