@@ -8,18 +8,28 @@ namespace Monopoly
     public interface IBankerService
     {
         void PassGo(Player player);
-        void BuyProperty(Player player, BaseProperty property);
+        void BuyProperty(Player player, Property property);
         void PayRent(Player player, int rentDue);
     }
 
     public class BankerService : IBankerService
     {
-        public void PassGo(Player player)
+        IBankRepository _bankRepository;
+
+        public BankerService() : this (null) { }
+
+        public BankerService(IBankRepository bankRepository)
         {
-            throw new NotImplementedException();
+            _bankRepository = bankRepository ?? new BankRepository();
         }
 
-        public void BuyProperty(Player player, BaseProperty property)
+        public void PassGo(Player player)
+        {
+            player.AccountBalance += 200;
+            _bankRepository.UpdateAccount(player.BankAccountId, player.AccountBalance);
+        }
+
+        public void BuyProperty(Player player, Property property)
         {
             throw new NotImplementedException();
         }

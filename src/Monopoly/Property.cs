@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Monopoly
 {
-    public abstract class BaseProperty
+    public abstract class Property
     {
         public int Price { get; set; }
         public int MortgageValue { get; set; }
@@ -13,7 +13,7 @@ namespace Monopoly
         public Player OwnedBy { get; set; }
     }
 
-    public class Utility : BaseProperty
+    public class Utility : Property
     {
         public bool BothOwned { get; set; }
 
@@ -28,7 +28,7 @@ namespace Monopoly
         }
     }
 
-    public class Railroad : BaseProperty
+    public class Railroad : Property
     {
         public int NumberOfRailroadsOwned { get; set; }
 
@@ -44,17 +44,17 @@ namespace Monopoly
         }
     }
 
-    public class ColoredLot : BaseProperty
+    public class ColoredLot : Property
     {
         public string Color { get; set; }
-        public int Houses { get; set; }
+        public int NumberOfHouses { get; set; }
         public bool OwnAllLotsInGroup { get; set; }
         public int BaseRent { get; set; }
         public List<int> RentValuesPerNumberOfHouses { get; set; }
 
         public int RentDue()
         {
-            return OwnAllLotsInGroup ? RentValuesPerNumberOfHouses[Houses] : BaseRent;
+            return OwnAllLotsInGroup ? RentValuesPerNumberOfHouses[NumberOfHouses] : BaseRent;
         }
     }
 }

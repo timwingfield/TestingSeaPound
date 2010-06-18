@@ -94,7 +94,7 @@ describe ColoredLot, 'the Boardwalk' do
     end
     
     it 'should default to zero houses' do
-      @boardwalk.houses.should be(0)
+      @boardwalk.number_of_houses.should be(0)
     end
     
     it 'should default to not owning all lots in the group' do
@@ -112,27 +112,27 @@ describe ColoredLot, 'the Boardwalk' do
       
       describe 'and we develop the lot' do
         it 'should have rent due of 200 with one house' do
-          @boardwalk.houses = 1
+          @boardwalk.number_of_houses = 1
           @boardwalk.rent_due.should be(200)
         end
         
         it 'should have rent due of 600 with two houses' do
-          @boardwalk.houses = 2
+          @boardwalk.number_of_houses = 2
           @boardwalk.rent_due.should be(600)
         end
         
         it 'should have rent due of 1400 with three houses' do 
-          @boardwalk.houses = 3
+          @boardwalk.number_of_houses = 3
           @boardwalk.rent_due.should be(1400)
         end
         
         it 'should have rent due of 1700 with four houses' do
-          @boardwalk.houses = 4
+          @boardwalk.number_of_houses = 4
           @boardwalk.rent_due.should be(1700)
         end
         
         it 'should have rent due of 2000 with a hotel' do
-          @boardwalk.houses = 5
+          @boardwalk.number_of_houses = 5
           @boardwalk.rent_due.should be(2000)
         end
       end
