@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/spec_helper'
 
-describe BankerService do
+describe BankerService, "using Caricature for mocks" do
   describe "when the bank pays a player" do
     before :each do
       @player = Player.new

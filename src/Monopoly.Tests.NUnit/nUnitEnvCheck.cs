@@ -6,10 +6,11 @@ using NUnit.Framework;
 
 namespace Monopoly.Tests.NUnit
 {
-    public class When_verifying_the_nunit_environment : Specification
+    public class When_verifying_the_nunit_environment
     {
         Player p;
-        protected override void Because()
+        [SetUp]
+        public void Because()
         {
             p = new Player();
         }

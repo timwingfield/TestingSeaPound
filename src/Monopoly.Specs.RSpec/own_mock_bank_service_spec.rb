@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/spec_helper'
 
-describe BankerService do
+describe BankerService, "using a hand rolled mock" do
   describe "when the bank pays a player" do
     before :each do
       @player = Player.new
@@ -25,7 +25,7 @@ describe BankerService do
     end
   
     describe "and the bank doesn't have enough money to pay the player" do    
-      it "should not increase the player's bank account by th e requested amount" do
+      it "should not increase the player's bank account by the requested amount" do
         @service.pay_player(@player, 550)
         @player.account_balance.should be(875)
       end
