@@ -10,7 +10,7 @@ namespace Monopoly
         public int Price { get; set; }
         public int MortgageValue { get; set; }
         public string Name { get; set; }
-        public Player OwnedBy { get; set; }
+        public string OwnedBy { get; set; }
     }
 
     public class Utility : Property
