@@ -7,18 +7,24 @@ namespace Monopoly
 {
     public interface IBankRepository
     {
-        void UpdateAccount(string accountId, int balance);
-        int CheckBalance(int accountId);
+        void PutMoneyInTheBank(int amount);
+        bool TakeMoneyFromTheBank(int amount);
+        int CheckFundsAvailable();
     }
 
     public class BankRepository : IBankRepository
     {
-        public void UpdateAccount(string accountId, int balance)
+        public void PutMoneyInTheBank(int amount)
         {
             throw new NotImplementedException();
         }
 
-        public int CheckBalance(int accountId)
+        public bool TakeMoneyFromTheBank(int amount)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int CheckFundsAvailable()
         {
             throw new NotImplementedException();
         }

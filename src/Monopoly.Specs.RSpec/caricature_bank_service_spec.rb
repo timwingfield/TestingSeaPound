@@ -6,8 +6,11 @@ describe BankerService do
       @player = Player.new
       @player.account_balance = 875
       
-      @repo = MockRepository.new
-      @service = BankerService.new @repo
+      @isolation = Isolation.for IBankRepository
+      @isolation.when_receiving(:take_money_from_the_bank).return(true)
+      @isolation.when_receiving(:take_money_from_the_bank).with(550).return(false)
+      
+      @service = BankerService.new @isolation
     end
     
     describe "and that player wins second prize in a beauty contest" do
@@ -25,7 +28,7 @@ describe BankerService do
     end
   
     describe "and the bank doesn't have enough money to pay the player" do    
-      it "should not increase the player's bank account by th e requested amount" do
+      it "should not increase the player's bank account by the requested amount" do
         @service.pay_player(@player, 550)
         @player.account_balance.should be(875)
       end
@@ -37,8 +40,9 @@ describe BankerService do
       @player = Player.new
       @player.account_balance = 175
       
-      @repo = MockRepository.new
-      @service = BankerService.new @repo
+      @isolation = Isolation.for IBankRepository
+      @isolation.when_receiving(:put_money_in_the_bank).with(50)
+      @service = BankerService.new @isolation
     end
     
     describe "and that player is paying a doctor's bill of $50" do
@@ -55,7 +59,7 @@ describe BankerService do
       end
       
       it "should call put money in the bank on the repository" do
-        @repo.put_money_in_the_bank_was_called.should be_true
+        @isolation.did_receive?(:put_money_in_the_bank).with(50).should be_true
       end
     end
     
@@ -65,26 +69,12 @@ describe BankerService do
       end
       
       it "should not call put money in the bank on the repository" do
-        @repo.put_money_in_the_bank_was_called.should be_false
+        @isolation.should_not_receive(:put_money_in_the_bank)
       end
       
       it "should return an insufficient funds message" do
         @message.should == "Insufficient funds"
       end
     end
-  end
-end
-
-class MockRepository
-  include Monopoly::IBankRepository
-  
-  attr_accessor :put_money_in_the_bank_was_called
-  
-  def take_money_from_the_bank(amount)
-    amount < 500
-  end
-  
-  def put_money_in_the_bank(amount)
-    @put_money_in_the_bank_was_called = true
   end
 end

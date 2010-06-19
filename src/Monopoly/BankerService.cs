@@ -5,38 +5,40 @@ using System.Text;
 
 namespace Monopoly
 {
-    public interface IBankerService
-    {
-        void PassGo(Player player);
-        void BuyProperty(Player player, Property property);
-        void PayRent(Player player, int rentDue);
-    }
-
-    public class BankerService : IBankerService
+    public class BankerService
     {
         IBankRepository _bankRepository;
 
-        public BankerService() : this (null) { }
+        public BankerService() : this(null) { }
 
         public BankerService(IBankRepository bankRepository)
         {
             _bankRepository = bankRepository ?? new BankRepository();
         }
 
+        public void PayPlayer(Player player, int amount)
+        {
+            if(_bankRepository.TakeMoneyFromTheBank(amount))
+                player.AccountBalance = player.AccountBalance + amount;
+        }
+
         public void PassGo(Player player)
         {
-            player.AccountBalance += 200;
-            _bankRepository.UpdateAccount(player.BankAccountId, player.AccountBalance);
+            PayPlayer(player, 200);
         }
 
-        public void BuyProperty(Player player, Property property)
+        public string PayTheBank(Player player, int amount)
         {
-            throw new NotImplementedException();
-        }
+            string message = "Insufficient funds";
 
-        public void PayRent(Player player, int rentDue)
-        {
-            throw new NotImplementedException();
+            if (player.AccountBalance > amount)
+            {
+                player.AccountBalance -= amount;
+                _bankRepository.PutMoneyInTheBank(amount);
+                message = "Payment successful";
+            }
+
+            return message;
         }
     }
 }
