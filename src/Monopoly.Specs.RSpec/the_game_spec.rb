@@ -1,9 +1,9 @@
 require File.dirname(__FILE__) + '/spec_helper'
 
-describe TheGame do
+describe "TheGame" do
   describe "when starting a player's turn" do
-    it "should get the player from the repository by name" do
-      
+    it "should get the player by name" do
+      #player service - call into player repo
     end
   end
   
@@ -14,7 +14,7 @@ describe TheGame do
     
     describe "and the player purchases the property" do
       it "should add the property to the player's property list" do
-        
+        #player service
       end
       
       it "should set owned by on the property to the current player" do
@@ -22,7 +22,7 @@ describe TheGame do
       end
       
       it "should reduce the player's bankroll by the cost of the property" do
-        
+        #create property service
       end
     end
     
