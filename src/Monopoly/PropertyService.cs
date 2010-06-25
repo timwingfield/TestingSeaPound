@@ -23,7 +23,7 @@ namespace Monopoly
 
         public List<Property> GetAvailableProperties()
         {
-            return _propertyRepository.GetAllProperties().Where(p => p.OwnedBy == "bank") as List<Property>;
+            return _propertyRepository.GetAllProperties().Where(p => p.OwnedBy == "Bank") as List<Property>;
         }
     }
 }
