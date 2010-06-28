@@ -23,14 +23,9 @@ namespace Monopoly
 
         public List<Property> GetAvailableProperties()
         {
-            var unowned = new List<Property>();
-            foreach (var item in _propertyRepository.GetAllProperties())
-            {
-                if (item.OwnedBy == "Bank")
-                    unowned.Add(item);
-            }
 
-            return unowned;
+            return _propertyRepository.GetAllProperties().Where(item => item.OwnedBy == "Bank").ToList();
+
         }
     }
 }

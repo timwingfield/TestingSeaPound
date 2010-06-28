@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="Monopoly.Tests.NUnit/bin/Debug/Monopoly.Tests.NUnit.dll" total="17" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2010-06-21" time="08:47:28">
+<test-results name="Monopoly.Tests.NUnit/bin/Debug/Monopoly.Tests.NUnit.dll" total="17" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2010-06-26" time="11:57:20">
   <environment nunit-version="2.5.5.10112" clr-version="4.0.30319.1" os-version="Microsoft Windows NT 6.1.7600.0" platform="Win32NT" cwd="c:\My Dropbox\DotNetDev\IronRuby\TestingSeaPound\src" machine-name="WIN-RML29LCRTNN" user="Tim" user-domain="WIN-RML29LCRTNN" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="Monopoly.Tests.NUnit/bin/Debug/Monopoly.Tests.NUnit.dll" executed="True" result="Success" success="True" time="1.422" asserts="0">
+  <test-suite type="Assembly" name="Monopoly.Tests.NUnit/bin/Debug/Monopoly.Tests.NUnit.dll" executed="True" result="Success" success="True" time="2.875" asserts="0">
     <results>
-      <test-suite type="Namespace" name="Monopoly" executed="True" result="Success" success="True" time="1.391" asserts="0">
+      <test-suite type="Namespace" name="Monopoly" executed="True" result="Success" success="True" time="2.844" asserts="0">
         <results>
-          <test-suite type="Namespace" name="Tests" executed="True" result="Success" success="True" time="1.391" asserts="0">
+          <test-suite type="Namespace" name="Tests" executed="True" result="Success" success="True" time="2.844" asserts="0">
             <results>
-              <test-suite type="Namespace" name="NUnit" executed="True" result="Success" success="True" time="1.391" asserts="0">
+              <test-suite type="Namespace" name="NUnit" executed="True" result="Success" success="True" time="2.844" asserts="0">
                 <results>
-                  <test-suite type="TestFixture" name="Specification" executed="True" result="Inconclusive" success="False" time="0.000" asserts="0" />
-                  <test-suite type="TestFixture" name="Using_moq_when_the_bank_pays_a_player" executed="True" result="Success" success="True" time="1.156" asserts="0">
+                  <test-suite type="TestFixture" name="Specification" executed="True" result="Inconclusive" success="False" time="0.016" asserts="0" />
+                  <test-suite type="TestFixture" name="Using_moq_when_the_bank_pays_a_player" executed="True" result="Success" success="True" time="2.547" asserts="0">
                     <results>
-                      <test-case name="Monopoly.Tests.NUnit.Using_moq_when_the_bank_pays_a_player.it_should_increase_the_players_account_balance_by_10_for_winning_2nd_place_in_a_beauty_contest" executed="True" result="Success" success="True" time="1.109" asserts="1" />
-                      <test-case name="Monopoly.Tests.NUnit.Using_moq_when_the_bank_pays_a_player.it_should_increase_the_players_account_balance_by_200_for_passing_go" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-                      <test-case name="Monopoly.Tests.NUnit.Using_moq_when_the_bank_pays_a_player.it_should_not_increase_the_players_bank_account_by_the_requested_amount" executed="True" result="Success" success="True" time="0.016" asserts="1" />
+                      <test-case name="Monopoly.Tests.NUnit.Using_moq_when_the_bank_pays_a_player.it_should_increase_the_players_account_balance_by_10_for_winning_2nd_place_in_a_beauty_contest" executed="True" result="Success" success="True" time="2.484" asserts="1" />
+                      <test-case name="Monopoly.Tests.NUnit.Using_moq_when_the_bank_pays_a_player.it_should_increase_the_players_account_balance_by_200_for_passing_go" executed="True" result="Success" success="True" time="0.016" asserts="1" />
+                      <test-case name="Monopoly.Tests.NUnit.Using_moq_when_the_bank_pays_a_player.it_should_not_increase_the_players_bank_account_by_the_requested_amount" executed="True" result="Success" success="True" time="0.000" asserts="1" />
                     </results>
                   </test-suite>
-                  <test-suite type="TestFixture" name="Using_moq_when_the_player_pays_the_bank_and_does_not_have_enough_to_cover_the_bill" executed="True" result="Success" success="True" time="0.172" asserts="0">
+                  <test-suite type="TestFixture" name="Using_moq_when_the_player_pays_the_bank_and_does_not_have_enough_to_cover_the_bill" executed="True" result="Success" success="True" time="0.234" asserts="0">
                     <results>
-                      <test-case name="Monopoly.Tests.NUnit.Using_moq_when_the_player_pays_the_bank_and_does_not_have_enough_to_cover_the_bill.it_should_not_call_to_put_money_in_the_bank_on_the_repository" executed="True" result="Success" success="True" time="0.172" asserts="0" />
+                      <test-case name="Monopoly.Tests.NUnit.Using_moq_when_the_player_pays_the_bank_and_does_not_have_enough_to_cover_the_bill.it_should_not_call_to_put_money_in_the_bank_on_the_repository" executed="True" result="Success" success="True" time="0.234" asserts="0" />
                       <test-case name="Monopoly.Tests.NUnit.Using_moq_when_the_player_pays_the_bank_and_does_not_have_enough_to_cover_the_bill.it_should_return_an_insufficient_funds_message" executed="True" result="Success" success="True" time="0.000" asserts="1" />
                     </results>
                   </test-suite>
                   <test-suite type="TestFixture" name="Using_moq_when_the_player_pays_the_bank_and_has_enough_money" executed="True" result="Success" success="True" time="0.016" asserts="0">
                     <results>
-                      <test-case name="Monopoly.Tests.NUnit.Using_moq_when_the_player_pays_the_bank_and_has_enough_money.it_should_decrease_the_players_account_by_50" executed="True" result="Success" success="True" time="0.016" asserts="1" />
-                      <test-case name="Monopoly.Tests.NUnit.Using_moq_when_the_player_pays_the_bank_and_has_enough_money.it_should_return_a_successful_payment_message" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="Monopoly.Tests.NUnit.Using_moq_when_the_player_pays_the_bank_and_has_enough_money.it_should_decrease_the_players_account_by_50" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="Monopoly.Tests.NUnit.Using_moq_when_the_player_pays_the_bank_and_has_enough_money.it_should_return_a_successful_payment_message" executed="True" result="Success" success="True" time="0.016" asserts="1" />
                       <test-case name="Monopoly.Tests.NUnit.Using_moq_when_the_player_pays_the_bank_and_has_enough_money.it_should_verify_a_call_to_put_money_in_the_bank_on_the_repository" executed="True" result="Success" success="True" time="0.000" asserts="0" />
                     </results>
                   </test-suite>
-                  <test-suite type="TestFixture" name="When_the_bank_pays_a_player" executed="True" result="Success" success="True" time="0.016" asserts="0">
+                  <test-suite type="TestFixture" name="When_the_bank_pays_a_player" executed="True" result="Success" success="True" time="0.000" asserts="0">
                     <results>
                       <test-case name="Monopoly.Tests.NUnit.When_the_bank_pays_a_player.it_should_increase_the_players_account_balance_by_10_for_winning_2nd_place_in_a_beauty_contest" executed="True" result="Success" success="True" time="0.000" asserts="1" />
                       <test-case name="Monopoly.Tests.NUnit.When_the_bank_pays_a_player.it_should_increase_the_players_account_balance_by_200_for_passing_go" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-                      <test-case name="Monopoly.Tests.NUnit.When_the_bank_pays_a_player.it_should_not_increase_the_players_bank_account_by_the_requested_amount" executed="True" result="Success" success="True" time="0.016" asserts="1" />
+                      <test-case name="Monopoly.Tests.NUnit.When_the_bank_pays_a_player.it_should_not_increase_the_players_bank_account_by_the_requested_amount" executed="True" result="Success" success="True" time="0.000" asserts="1" />
                     </results>
                   </test-suite>
-                  <test-suite type="TestFixture" name="When_the_player_pays_the_bank_and_does_not_have_enough_to_cover_the_bill" executed="True" result="Success" success="True" time="0.000" asserts="0">
+                  <test-suite type="TestFixture" name="When_the_player_pays_the_bank_and_does_not_have_enough_to_cover_the_bill" executed="True" result="Success" success="True" time="0.016" asserts="0">
                     <results>
                       <test-case name="Monopoly.Tests.NUnit.When_the_player_pays_the_bank_and_does_not_have_enough_to_cover_the_bill.it_should_not_call_to_put_money_in_the_bank_on_the_repository" executed="True" result="Success" success="True" time="0.000" asserts="1" />
                       <test-case name="Monopoly.Tests.NUnit.When_the_player_pays_the_bank_and_does_not_have_enough_to_cover_the_bill.it_should_return_an_insufficient_funds_message" executed="True" result="Success" success="True" time="0.000" asserts="1" />
