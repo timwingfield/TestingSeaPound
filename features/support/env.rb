@@ -1,4 +1,4 @@
-$: << 'src/Monopoly/bin/Debug'
+$: << 'features'
 
 require 'rubygems'
 require 'cucumber'
