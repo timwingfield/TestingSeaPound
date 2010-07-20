@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/spec_helper'
 describe BankerService, "using a hand rolled mock" do
   describe "when the bank pays a player" do
     before :each do
-      @player = Player.new
+      @player = Player.new 
       @player.account_balance = 875
       
       @repo = MockRepository.new
