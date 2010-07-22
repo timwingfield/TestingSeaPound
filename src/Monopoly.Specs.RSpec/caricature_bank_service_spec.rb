@@ -59,7 +59,7 @@ describe BankerService, "using Caricature for mocks" do
       end
       
       it "should call put money in the bank on the repository" do
-        @isolation.did_receive?(:put_money_in_the_bank).with(50).should be_true
+        @isolation.did_receive?(:put_money_in_the_bank).with(50)
       end
     end
     
