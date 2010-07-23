@@ -1,0 +1,67 @@
+  [4;36;1mSQL (593.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (31.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (453.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (109.4ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (187.5ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (15.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2010-07-22 19:04:55) [GET]
+  [4;36;1mSQL (409.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Completed in 702ms (View: 104, DB: 410) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-22 19:05:14) [GET]
+
+ActionController::RoutingError (No route matches "/property" with {:method=>:get}):
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:442:in `recognize'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:437:in `call'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `[]'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+  C:/Program Files (x86)/IronRuby/lib/ironruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+  C:/Program Files (x86)/IronRuby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Program Files (x86)/IronRuby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Program Files (x86)/IronRuby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  IronRuby.Libraries:0:in `RubyThreadStart'
+  IronRuby.Libraries:0:in `<CreateThread>b__0'
+  mscorlib:0:in `ThreadStart_Context'
+  mscorlib:0:in `Run'
+  mscorlib:0:in `Run'
+  mscorlib:0:in `ThreadStart'
+
+Rendering rescues/layout (not_found)

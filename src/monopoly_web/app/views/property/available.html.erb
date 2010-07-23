@@ -1,0 +1,6 @@
+<h1>Current Available Properties</h1>
+<ul>
+	<% @properties.each do |property| %>
+	<li>Property: <%= property.name %> | Price: $<%= property.price %> </li>
+	<% end %>
+</ul>
