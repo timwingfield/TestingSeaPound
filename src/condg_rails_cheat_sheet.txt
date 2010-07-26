@@ -1,0 +1,64 @@
+DON'T FORGET TO COPY THE DLL!!!
+
+
+----- model -----
+require "Monopoly.dll"
+
+
+class PropertyModel < Monopoly::Property
+	@service = Monopoly::PropertyService.new
+
+	class << self
+		def get_all
+			@service.get_all_properties
+		end
+
+		def get_available
+			@service.get_available_properties
+		end
+	end
+end
+
+
+
+----- controller ------
+class PropertyController < ApplicationController
+  def index
+  end
+
+  def list
+	@properties = PropertyModel.get_all
+  end
+
+  def available
+	@properties = PropertyModel.get_available
+  end
+
+end
+
+
+----- views -----
+
+index.html.erb
+<h1>View Properties</h1>
+<ul>
+	<li><%= link_to "View all properties", :controller => "property", :action => "list" %></li>
+	<li><%= link_to "View available properties", :controller => "property", :action => "available" %></li>
+</ul>
+
+available.html.erb
+<h1>Current Available Properties</h1>
+<ul>
+	<% @properties.each do |property| %>
+	<li>Property: <%= property.name %> | Price: $<%= property.price %> </li>
+	<% end %>
+</ul>
+
+
+list.html.erb
+<h1>All Properties</h1>
+<ul>
+	<% @properties.each do |property| %>
+	<li>Property: <%= property.name %> | Owned By: <%= property.owned_by %> | Price: $<%= property.price %> </li>
+	<% end %>
+</ul>
