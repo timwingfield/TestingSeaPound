@@ -1,0 +1,59 @@
+require 'rake'
+require 'spec/rake/spectask'
+require 'cucumber'
+require 'cucumber/rake/task'
+require 'albacore'
+
+desc 'Builds the Monopoly app'
+task :default => [:msbuild]
+
+desc 'Builds Monopoly app and runs the nunit tests'
+task :test => [:msbuild, :nunit]
+
+desc 'Builds Monopoly app and runs the rspec tests'
+task :spec => [:msbuild, :rspec]
+
+desc 'Builds Monopoly app and runs rspec tests in specdoc format'
+task :specdoc => [:msbuild, :formatspec]
+
+desc 'Builds Monopoly app and runs cucumber features in progress mode'
+task :cuke => [:msbuild, :features_progress]
+
+desc 'Builds Monopoly app, runs nunit tests, runs rspec tests, and runs cucumber features'
+task :all => [:msbuild, :nunit, :rspec, :features_progress]
+
+desc "Build Monopoly in .Net 4.0 using the MSBuildTask"
+msbuild do |msb|
+  msb.path_to_command = File.join(ENV['windir'], 'Microsoft.NET', 'Framework', 'v4.0.30319', 'MSBuild.exe')
+  msb.properties :configuration => :Debug
+  msb.targets :Clean, :Build
+  msb.verbosity = 'quiet'
+  msb.solution = "src/Monopoly.sln"
+end
+
+desc "NUnit Test Runner for Monopoly"
+nunit do |nunit|
+	nunit.path_to_command = "libs/nUnit/nunit-console.exe"
+	nunit.assemblies "src/Monopoly.Tests.NUnit/bin/Debug/Monopoly.Tests.NUnit.dll"
+end
+
+desc 'Runs the rspec tests in IronRuby'
+Spec::Rake::SpecTask.new(:rspec) do |t|
+  t.spec_files = Dir.glob('src/Monopoly.Specs.RSpec/**/*_spec.rb')
+end
+
+desc 'Runs the rspec tests in IronRuby and outputs specdoc'
+Spec::Rake::SpecTask.new(:formatspec) do |t|
+  t.spec_files = Dir.glob('src/Monopoly.Specs.RSpec/**/*_spec.rb')
+  t.spec_opts << '--format specdoc'
+end
+
+desc 'Runs the cucumber features'
+Cucumber::Rake::Task.new(:features) do |t|
+  t.cucumber_opts = "features --format pretty --no-source"
+end
+
+desc 'Runs the cucumber features with a . per test'
+Cucumber::Rake::Task.new(:features_progress) do |t|
+  t.cucumber_opts = "features --format progress"
+end

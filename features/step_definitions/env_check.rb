@@ -7,6 +7,6 @@ When /^I check the player balance$/ do
   @balance = @player.account_balance
 end
 
-Then /^the account balance should be "([^\"]*)"$/ do |balance|
-  @balance.should be(balance)
+Then /^the initial account balance should be \$2000$/ do 
+  @balance.should be(2000)
 end

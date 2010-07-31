@@ -1,4 +1,4 @@
-$: << './Monopoly/bin/Debug'
+$: << './src/Monopoly/bin/Debug'
 
 require 'Monopoly.dll'
 require 'spec'
