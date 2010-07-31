@@ -59,3 +59,44 @@ ActionView::MissingTemplate (Missing template property/index.erb in view path ap
   mscorlib:0:in `ThreadStart'
 
 Rendering rescues/layout (internal_server_error)
+
+
+Processing PropertyController#index (for 127.0.0.1 at 2010-07-28 20:00:35) [GET]
+Rendering property/index
+Completed in 191ms (View: 147, DB: 0) | 200 OK [http://localhost/property]
+  [4;36;1mSQL (296.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (19.5ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (118.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (26.4ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (69.4ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing PropertyController#index (for 127.0.0.1 at 2010-07-28 20:08:08) [GET]
+Rendering property/index
+Completed in 115ms (View: 91, DB: 0) | 200 OK [http://localhost/property]
+
+
+Processing PropertyController#list (for 127.0.0.1 at 2010-07-28 20:08:16) [GET]
+Rendering property/list
+Completed in 120ms (View: 54, DB: 0) | 200 OK [http://localhost/property/list]
+
+
+Processing PropertyController#available (for 127.0.0.1 at 2010-07-28 20:08:27) [GET]
+Rendering property/available
+Completed in 95ms (View: 52, DB: 0) | 200 OK [http://localhost/property/available]
